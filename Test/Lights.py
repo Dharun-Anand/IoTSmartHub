@@ -23,22 +23,19 @@ lights = 17
 GPIO.setup(lights, GPIO.OUT)
 
 def initialize():
-    GPIO.output(lights, False)
+    GPIO.output(lights, True)
     database = firebase.database()                                         #take an instance from the firebase database which is pointing to the root directory of your database.
     database.child("IoTHomeSystem1").child("Lights").set("OFF")
         
 def lightFunc():
     database = firebase.database()                                         #take an instance from the firebase database which is pointing to the root directory of your database.
     lightStatus = database.child("IoTHomeSystem1").child("Lights").get().val()
-    #SmartHub = database.child("IoTHomeSystem1")                        #get the child "RGBControl" path in your database and store it inside the "RGBControlBucket" variable.
-    #lightStatus = SmartHub.child("Lights").get().val()  #read the light preset mode value from the tag "lightMode" which is a node inside the database then store that value inside the "lightPresetMode" variable.
-    #print("light status is: " + str(lightStatus))
     if "off" in lightStatus.lower():                               #If value is off, turn LED off
         print("light status is: " + str(lightStatus))
-        GPIO.output(lights, False)
+        GPIO.output(lights, True)
     else:                                                     #If value is not off(implies it's on), turn LED on
         print("light status is: " + str(lightStatus))
-        GPIO.output(lights, True)
+        GPIO.output(lights, False)
 
 try:
     initialize()
@@ -47,4 +44,5 @@ try:
         time.sleep(0.1)
     
 except KeyboardInterrupt: # If CTRL+C is pressed, exit cleanly:
+    initialize()
     GPIO.cleanup() # cleanup all GPIO
