@@ -46,5 +46,5 @@ try:
         lightFunc()
         time.sleep(0.1)
     
-#except KeyboardInterrupt: # If CTRL+C is pressed, exit cleanly:
-#GPIO.cleanup() # cleanup all GPIO
+except KeyboardInterrupt: # If CTRL+C is pressed, exit cleanly:
+    GPIO.cleanup() # cleanup all GPIO
