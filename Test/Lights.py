@@ -25,6 +25,7 @@ GPIO.setup(lights, GPIO.OUT)
 def initialize():
     GPIO.output(lights, True)
     database = firebase.database()                                         #take an instance from the firebase database which is pointing to the root directory of your database.
+    database.child("IoTHomeSystem1").child("System").set("OFF")
     database.child("IoTHomeSystem1").child("Lights").set("OFF")
         
 def lightFunc():
@@ -39,6 +40,8 @@ def lightFunc():
 
 try:
     initialize()
+    database = firebase.database() 
+    database.child("IoTHomeSystem1").child("System").set("ON")
     while(True):
         lightFunc()
         time.sleep(0.1)
