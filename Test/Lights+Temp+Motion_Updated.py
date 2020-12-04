@@ -59,7 +59,7 @@ def THFunc():
         str_humid  = ' {0:0.2f}'.format(humidity)
         database.child("IoTHomeSystem1").child("TH").child("Temp").set(str_temp)
         database.child("IoTHomeSystem1").child("TH").child("Humid").set(str_humid)
-    else:
+    #else:
         #print('Failed to get reading. Try later!')
 
 def pirFunc():
@@ -78,6 +78,8 @@ try:
             lightFunc()
             THFunc()
             pirFunc()
+        if "off" in sysStatus.lower():
+            initialize()
         time.sleep(0.1)
     
 except KeyboardInterrupt: # If CTRL+C is pressed, exit cleanly:
