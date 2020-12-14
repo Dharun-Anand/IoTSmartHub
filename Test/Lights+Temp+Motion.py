@@ -36,7 +36,6 @@ def initialize():
     database = firebase.database()                                              #take an instance from the firebase database
     database.child("IoTHomeSystem1").child("System").set("OFF")                 #set all keys to off for initialization
     database.child("IoTHomeSystem1").child("Lights").set("OFF")                 # ...
-    database.child("IoTHomeSystem1").child("TH").child("Disp").set("OFF")
     database.child("IoTHomeSystem1").child("TH").child("Temp").set("0.00")
     database.child("IoTHomeSystem1").child("TH").child("Humid").set("0.00")
     database.child("IoTHomeSystem1").child("Motion").set("OFF")
@@ -44,11 +43,9 @@ def initialize():
 def lightFunc():
     database = firebase.database()                                         
     lightStatus = database.child("IoTHomeSystem1").child("Lights").get().val()  #get status of lights
-    if "off" in lightStatus.lower():                                            #If value is off, turn LED off
-        #print("light status is: " + str(lightStatus))
+    if "off" in lightStatus.lower():                                            #if value is off, turn LED off
         GPIO.output(lights, True)
-    else:                                                                       #If value is on, turn LED on
-        #print("light status is: " + str(lightStatus))
+    else:                                                                       #if value is on, turn LED on
         GPIO.output(lights, False)
 
 def THFunc():
@@ -59,13 +56,10 @@ def THFunc():
         str_humid  = ' {0:0.2f}'.format(humidity)
         database.child("IoTHomeSystem1").child("TH").child("Temp").set(str_temp)    #send readings to firebase database
         database.child("IoTHomeSystem1").child("TH").child("Humid").set(str_humid)  # ...
-    #else:
-        #print('Failed to get reading. Try later!')
 
 def pirFunc():
     if GPIO.input(pir) == True:                                                 #if motion pin goes high, motion is detected
         database.child("IoTHomeSystem1").child("Motion").set("ON")
-        #print("Motion Detected")
     else:
         database.child("IoTHomeSystem1").child("Motion").set("OFF")
 
