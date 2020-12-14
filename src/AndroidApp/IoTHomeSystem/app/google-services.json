@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "251264517253",
+    "firebase_url": "https://iothomesystem1.firebaseio.com",
+    "project_id": "iothomesystem1",
+    "storage_bucket": "iothomesystem1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251264517253:android:88712713911781310155ec",
+        "android_client_info": {
+          "package_name": "com.example.iothomesystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251264517253-iphfesk5tjf097khmchg5m6isumhffqf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iothomesystem",
+            "certificate_hash": "7cba938d4514637dfa50bc40e48c782b03eaeb65"
+          }
+        },
+        {
+          "client_id": "251264517253-96tc011buvmpg404pqsamfmk8hdgopmf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHNtdxNPAa4E4VUYRg4r2WAxPQkcBPq7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251264517253-96tc011buvmpg404pqsamfmk8hdgopmf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
